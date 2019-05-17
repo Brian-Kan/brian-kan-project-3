@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="resources/styles/style.css"/>
+    <!-- <link rel="stylesheet" href="resources/styles/style.css"/> -->
     <link type="image/png" href="resources/assets/favicon.ico" rel="icon">
 
     <!-- insert font awesome -->
@@ -22,36 +22,104 @@
 
         <section>
             <form action="">
-                <fieldset>
+                <fieldset data-question="question1">
                     <p>Question 1: blah blah blah</p>
                     <label for="option-a">Option A</label>
-                    <input type="radio" id="option-a">
+                    <input type="radio" id="option-a" name="question1" value="optionA" data-value="optionA">
 
                     <label for="option-b">Option B</label>
-                    <input type="radio" id="option-b">
+                    <input type="radio" id="option-b" name="question1" value="optionB" data-value="optionB">
 
                     <label for="option-c">Option C</label>
-                    <input type="radio" id="option-c">
+                    <input type="radio" id="option-c" name="question1"value="optionC" data-value="optionC">
 
                     <label for="option-d">Option D</label>
-                    <input type="radio" id="option-d">
-                    
+                    <input type="radio" id="option-d" name="question1" value="optionD" data-value="optionD">
+
+                   
+                    <button type="submit" id="next" value="submit" data-value="question1" class="button" required>Next</button>
+                    <label for="next">Answer 1: bleh bleh bleh</label>
+
+                    <p></p>
+
+
                 </fieldset>
 
-                <fieldset>
+                <fieldset data-question="question2">
                     <p>Question 2: blah blah blah</p>
                     <label for="option-a">Option A</label>
-                    <input type="radio" id="option-a">
+                    <input type="radio" id="option-a" name="question2" value="optionA" data-value="optionA">
 
                     <label for="option-b">Option B</label>
-                    <input type="radio" id="option-b">
+                    <input type="radio" id="option-b" name="question2" value="optionB" data-value="optionA">
 
                     <label for="option-c">Option C</label>
-                    <input type="radio" id="option-c">
+                    <input type="radio" id="option-c" name="question2" value="optionC" data-value="optionA">
 
                     <label for="option-d">Option D</label>
-                    <input type="radio" id="option-d">
-                    
+                    <input type="radio" id="option-d" name="question2" value="optionD" data-value="optionA">
+ 
+                    <button type="submit" id="next" value="submit" data-value="question2" class="button" required>Next</button>
+                    <label for="next">Answer 1: bleh bleh bleh</label>
+
+
+                </fieldset>
+
+                <fieldset data-question="question3">
+                    <p>Question 3: blah blah blah</p>
+                    <label for="option-a">Option A</label>
+                    <input type="radio" id="option-a" name="question3" value="optionA" data-value="optionA">
+
+                    <label for="option-b">Option B</label>
+                    <input type="radio" id="option-b" name="question3" value="optionA" data-value="optionA">
+
+                    <label for="option-c">Option C</label>
+                    <input type="radio" id="option-c" name="question3" value="optionA" data-value="optionA">
+
+                    <label for="option-d">Option D</label>
+                    <input type="radio" id="option-d" name="question3" value="optionA" data-value="optionA">
+ 
+                    <button type="submit" id="next" required>Next</button>
+                    <label for="next">Answer 3: bleh bleh bleh</label>
+
+                </fieldset>
+
+                <fieldset data-question="question4">
+                    <p>Question 4: blah blah blah</p>
+                    <label for="option-a">Option A</label>
+                    <input type="radio" id="option-a" name="question4" value="optionA" data-value="optionA">
+
+                    <label for="option-b">Option B</label>
+                    <input type="radio" id="option-b" name="question4" value="optionA" data-value="optionA">
+
+                    <label for="option-c">Option C</label>
+                    <input type="radio" id="option-c" name="question4" value="optionA" data-value="optionA">
+
+                    <label for="option-d">Option D</label>
+                    <input type="radio" id="option-d" name="question4" value="optionA" data-value="optionA">
+ 
+                    <button type="submit" id="next" required>Next</button>
+                    <label for="next">Answer 4: bleh bleh bleh</label>
+
+                </fieldset>
+
+                <fieldset data-question="question5">
+                    <p>Question 5: blah blah blah</p>
+                    <label for="option-a">Option A</label>
+                    <input type="radio" id="option-a" name="question5" value="optionA" data-value="optionA">
+
+                    <label for="option-b">Option B</label>
+                    <input type="radio" id="option-b" name="question5" value="optionA" data-value="optionA">
+
+                    <label for="option-c">Option C</label>
+                    <input type="radio" id="option-c" name="question5" value="optionA" data-value="optionA">
+
+                    <label for="option-d">Option D</label>
+                    <input type="radio" id="option-d" name="question5" value="optionA" data-value="optionA">
+ 
+                    <button type="submit" id="next" required>Next</button>
+                    <label for="next">Answer 5: bleh bleh bleh</label>
+
                 </fieldset>
 
             </form>
@@ -64,7 +132,6 @@
 
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
-

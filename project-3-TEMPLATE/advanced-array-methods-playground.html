@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adv array methods</title>
+</head>
+<body>
+    <h1>These are movie genres that I like</h1>
+    <ul class="movieGenres">
+
+    </ul>
+
+    <ul class="popStars">
+
+    </ul>
+
+
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+
+    <script>
+        const genres = ['Horror', 'Comedy', 'Rom Com', 'Adventure', 'Marvel']
+        
+        genres.forEach(genre =>{
+            $('.movieGenres').append(`<li>${genre}</li>`)
+        })
+
+        // const numbers = [22,33,44,55,66]
+
+        // const halfNumbers = numbers.map(number =>{
+        //     return number/2
+        // })
+// =========================================================================
+        const famousPopStars = [
+            {first:  "Kylie", last: "Minogue"},
+            {first: "Adam", Last: "McMillan"},
+            {first: "Carly Rae", last: "Jepsen"}
+        ]
+
+        const names = famousPopStars.map(person =>{
+            return `${person.first} ${person.last}`
+        })
+
+        names.forEach(name => {
+            $('.popStars').append(`<li>${name}</li>`)
+        })
+// =========================================================================
+        const users = [
+            { name: 'Spider-Man', age: 16 },
+            { name: 'Buffy Summers', age: 25 },
+            { name: 'Gandalf the Grey', age: 90 },
+            { name: 'Arthur Read', age: 9 },
+            { name: 'Buffy Summers', age: 19 }
+        ];
+
+        const ofAge = users.filter( user => {
+            return user.age >= 19
+        } )
+
+        console.log(ofAge)
+// =========================================================================
+
+        const isBuffy = users.filter(person => {
+            return person.name === 'Buffy Summers' && person.age === 25
+        })
+
+        console.log(isBuffy)
+// =========================================================================
+        const numbersAgain = [22, 33, 55, 66, 66]
+
+        const sum = numbersAgain.reduce((total, currentValue) =>{
+                // return total
+                // return currentValue
+                console.log(total)
+                console.log(currentValue)
+            })
+        console.log(total)
+        console.log(currentValue)
+
+
+    </script>
+</body>
+</html>

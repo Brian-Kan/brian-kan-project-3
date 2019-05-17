@@ -25,15 +25,12 @@
 
   // STEP TWO: write a function that displays result on the page with the correct answer. HINT: What kind of information (paramaters) does this funciton need to properly display all of our information?
 
-  // STEP THREE: display final total result on the page 
+  // STEP THREE: display final total result on the page
 
   // STEP FOUR: add an event listener that will notice when a user clicks on a next/submit button, find out which answer they have selected
-  
-  
+ 
+ 
 //   , and call our display items method again. Don't forget to update the navigation, too!
-
-
-
 
 
 
@@ -41,28 +38,61 @@
 // name spacing
 const disQuiz = {};
 
-// An array for my objects
+// An object for my objects
 
 // NOTES: this seems repeatable - can it be in a function somehow despite beying part of the layout?
-disQuiz.questionsOneToTen = [
-    disQuiz.questionsAnsOne = {
-        questionOneOptA: `Question 1 Answer A`,
-        questionOne1OptB: `Question 1 Answer B`,
-        questionOne1OptC: `Question 1 Answer C`,
-        questionOne1OptD: `Question 1 Answer D`,
-        questionOne1Ans:`Answer to Question 1`
+// disQuiz.questionsOneToTen = {
+//     questionsAnsOne: {
+//         questionOneOptA: `Question 1 Answer A`,
+//         questionOne1OptB: `Question 1 Answer B`,
+//         questionOne1OptC: `Question 1 Answer C`,
+//         questionOne1OptD: `Question 1 Answer D`,
+//         questionOne1Ans:`Answer to Question 1`
+//     },
+   
+//     questionsAnsTwo: {
+//         questionTwoOptA: `Question 2 Answer A`,
+//         questionTwoOptB: `Question 2 Answer B`,
+//         questionTwoOptC: `Question 2 Answer C`,
+//         questionTwoOptD: `Question 2 Answer D`,
+//         questionTwoAns:`Answer to Question 2`
+//     }
+// }
 
-    },
-    
-    disQuiz.questionsAnsTwo = {
-        questionTwoOptA: `Question 2 Answer A`,
-        questionTwoOptB: `Question 2 Answer B`,
-        questionTwoOptC: `Question 2 Answer C`,
-        questionTwoOptD: `Question 2 Answer D`,
-        questionTwoAns:`Answer to Question 2`
-    }
-]
+disQuiz.answerGuide = {
+    question1: 'optionD',
+    question2: 'optionC',
+    question3: 'optionC'
+}
 
+// ===========================================================================================
+// ===========================================================================================
+
+const myType = $('input[name=question1]:checked').val();
+
+console.log(myType)
+
+// ===========================================================================================
+// ===========================================================================================
+
+// const type = $('input[name=beverage]:checked').val();
+
+
+// for (let i = 0; i < choice.length; i = i + 1){
+
+//     // storing eah store in our STORE variable
+//     const store = choice[i];
+
+//     // we are checking the current stores price with  the users price preference			
+//     if(store.price === price){
+
+//     // if the store price matches our users price preference, then we add that store, to our approprirate drink options array	
+//     options.push(store)
+//     }
+// }
+
+// ===========================================================================================
+// ===========================================================================================
 
 // to grab the value of the label so I can use it to compare to the answer
 $('labelID').on('submit', function(e){
@@ -72,126 +102,80 @@ $('labelID').on('submit', function(e){
 const choice = $('input[name=question1]:checked').val();
 
 
-disQuiz.init = function() {
-
-};
 
 
+const totalAnsArray = []
+
+// ===============================================================================================
+// ===============================================================================================
+// <p class="postedAnswer"
+let score = 0
 // to update the html with the result
 $('form').on('submit', function(e){
     e.preventDefault();
-    const userAns = ${labelID}.val().toLowerCase();
-    
-    const type = $('input[name=beverage]:checked').val();
-    
-    const choice = drinks[type];
-    
-    const options = [];
-    
-    $('.results').html(`<p>${result}</p>`)
+
+
+    const answer = ($('input[name=question1]:checked').attr('data-value'))
+
+    if (answer === disQuiz.answerGuide.question1) {
+        alert('yes!');
+        score ++
+        console.log(score);
+        console.log(indexOf)
+    } else {
+        alert('wrong')
+    }
+
+// get the field set data value for each question and log it into a variable
+//  if we have more than one variable, loop through all the variables and get the answer selected
+
+ 
+   
+    // $('.results').html(`<p>${result}</p>`)
 
 })
+
+// This is to append the answer to the DOM
+
+// const answerOnePop =
+// if(userAns === ans) {
+//     $("answerPop").append(`Correct! ${ansOnePops}.`)
+// } else if (userAns !== ans) {
+//     $("answerPop").append(`Incorrect. ${ansOnePops}.s`)
+// } else {
+//     $("answerPop").append(`Please select an answer.`)
+// }
+
+// ===============================================================================================
+// ===============================================================================================
+disQuiz.showAnswer = function(buttonReference) {
+ console.log('called showAnswer', buttonReference);
+ // store the seleced radial button value in a variable
+ const questionAsked = buttonReference.data('value')
+ console.log(questionAsked)
+ const userChoice = $(`input[name=${questionAsked}]:checked`)
+ console.log(userChoice.val())
+
+// if disQuiz.answerGuide[questionAsked] = userChoice.val() ==right answer
+// disQuiz.answerGuide.question1
+ 
+ // iterate over the answerGuide object and find the answer for the question for comparision.
+
+}
+
+disQuiz.init = function() {
+ $('.button').on('click', function(){
+    disQuiz.showAnswer($(this));
+ })
+    
+};
 
 // document ready
 $(function() {
     disQuiz.init();
 });
 
-// ===============================================================================================
-// ===============================================================================================
-// <p class="postedAnswer"
-
-if(userAns === ans)
 
 
-
-
-// ===============================================================================================
-// ===============================================================================================
-
-
-
-
-
-const drinks = {
-	coffee: [
-		{
-			title: 'Early Bird',
-			price: '$$'
-		},
-		{	
-			title: 'Dark Horse',
-			price: '$'
-		},
-		{	
-			title: 'Le Gourmand',
-			price: '$'
-		}
-	],
-	tea: [
-		{
-			title: 'David\'s Tea',
-			price: '$$'
-		},
-		{
-			title: 'Tealish',
-			price: '$$'
-		},
-		{
-			title: 'Teavana',
-			price: '$'
-		}
-	]
-};
-$(function() {
-
-	// function accepts an argument that is an array
-	function randoIndex(optionsArray){
-
-		// generating a random number between 0 and the final index position value
-		const index = Math.floor(Math.random() * optionsArray.length);
-
-		// returning our passed-in array with a specific index value attached
-		return optionsArray[index];
-	}
-
-	// bind our click event to our submit button
-	$('input[type=submit]').on('click', function(event){
-
-		// prevent devault behaviour of submit button
-		event.preventDefault();
-
-		// capturing the users drink preference
-		const type = $('input[name=beverage]:checked').val();
-
-		// capturing the users price preference
-		const price = $('input[name=price]:checked').val();
-
-		// using users drink preference, narrow down our results to the specific drink type
-		const choice = drinks[type];
-
-		// creating a place to store appropriate drink options
-		const options = [];
-
-		// looping through the array that is the users drink choice
-		for (let i = 0; i < choice.length; i = i + 1){
-
-			// storing each store in our STORE variable
-			const store = choice[i];
-
-			// we are checking the current stores price with  the users price preference			
-			if(store.price === price){
-
-			// if the store price matches our users price preference, then we add that store, to our approprirate drink options array	
-			options.push(store)			
-			}
-		}
-
-		// we are generating a random index value for our appropriate drink optinos array
-		const optionToDisplay = randoIndex(options);
-
-		// we are printing to the page, the name of the random store that is stored in our optionToDisplay variable
-		$('.results').html(`<h2 class="choice">${optionToDisplay.title}</h2>`)
-	})
-});
+	
 
