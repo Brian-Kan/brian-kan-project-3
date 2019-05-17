@@ -1,0 +1,29 @@
+// PSEUDO CODE
+
+// MVP - Quiz
+// This will be a multiple choice quiz.
+// There will be 10 questions.  4 choices per question.
+// A question and it's 4 options + answer will act as a template.
+// There may be an array of 10 questions.  Unsure if an array is actually needed.
+// Questions and their respective answers will be placed in an object.
+// Once the answers are ALL selected, the user can click on 'submit'.
+// Submit will result in the final score + answers to be populated.
+// Final score will be a H2 update as it will sit in a default state of 0/10.
+// Answers will populate straight into the DOM.
+
+// STRETCH GOALS
+// Each question will have it's own page.
+// Answer will populate in the form of a modal after each question is submitted.
+// The answer will show what the user selected vs the correct answer via color coding.  Green for 'right' and red for 'wrong'.
+// Last page will have the grand total.
+
+A multiple choice quiz that tests the user's knowledge about Disney.
+
+The quiz will compare the user choices to the answer key and tally the total.  The answers will also populate with the total.
+
+Questions will have their own page.  Answers will populate in a modal after each question.
+
+
+
+
+
