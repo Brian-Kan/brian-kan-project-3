@@ -34,148 +34,126 @@
 
 
 
-
 // name spacing
 const disQuiz = {};
 
-// An object for my objects
 
-// NOTES: this seems repeatable - can it be in a function somehow despite beying part of the layout?
-// disQuiz.questionsOneToTen = {
-//     questionsAnsOne: {
-//         questionOneOptA: `Question 1 Answer A`,
-//         questionOne1OptB: `Question 1 Answer B`,
-//         questionOne1OptC: `Question 1 Answer C`,
-//         questionOne1OptD: `Question 1 Answer D`,
-//         questionOne1Ans:`Answer to Question 1`
-//     },
-   
-//     questionsAnsTwo: {
-//         questionTwoOptA: `Question 2 Answer A`,
-//         questionTwoOptB: `Question 2 Answer B`,
-//         questionTwoOptC: `Question 2 Answer C`,
-//         questionTwoOptD: `Question 2 Answer D`,
-//         questionTwoAns:`Answer to Question 2`
-//     }
-// }
+// getElementByClassName()  this brings back an array.  
 
 disQuiz.answerGuide = {
-    question1: 'optionD',
-    question2: 'optionC',
-    question3: 'optionC'
+    question-1: {
+        answer: 'optionD',
+        fact: 'FUN Fact about Answer 1.'
+    },
+    question2: {
+        answer: 'optionC',
+        fact: 'FUN Fact about Answer 2.'    
+    },
+    question3: {
+        answer: 'optionB',
+        fact: 'FUN Fact about Answer 3.'
+    },
+    question4: {
+        answer: 'optionA',
+        fact: 'FUN Fact about Answer 4.'
+    },
+    question5: {
+        answer: 'optionB',
+        fact: 'FUN Fact about Answer 5.'
+    }
 }
 
-// ===========================================================================================
-// ===========================================================================================
+console.log(disQuiz.answerGuide)
+console.log(Object.values(disQuiz.answerGuide))
 
-const myType = $('input[name=question1]:checked').val();
+// const questionArray = document.getElementsByClassName();
 
-console.log(myType)
-
-// ===========================================================================================
-// ===========================================================================================
-
-// const type = $('input[name=beverage]:checked').val();
-
-
-// for (let i = 0; i < choice.length; i = i + 1){
-
-//     // storing eah store in our STORE variable
-//     const store = choice[i];
-
-//     // we are checking the current stores price with  the users price preference			
-//     if(store.price === price){
-
-//     // if the store price matches our users price preference, then we add that store, to our approprirate drink options array	
-//     options.push(store)
-//     }
-// }
-
-// ===========================================================================================
-// ===========================================================================================
-
-// to grab the value of the label so I can use it to compare to the answer
-$('labelID').on('submit', function(e){
-    e.preventDefault();
-})
-
-const choice = $('input[name=question1]:checked').val();
-
+for (let answer in disQuiz.answerGuide) {
+    // console.log (disQuiz.answerGuide[answer]);
+    // console.log(answer);
+}
 
 
 
 const totalAnsArray = []
-
 // ===============================================================================================
 // ===============================================================================================
-// <p class="postedAnswer"
-let score = 0
-// to update the html with the result
-$('form').on('submit', function(e){
-    e.preventDefault();
 
-
-    const answer = ($('input[name=question1]:checked').attr('data-value'))
-
-    if (answer === disQuiz.answerGuide.question1) {
-        alert('yes!');
-        score ++
-        console.log(score);
-        console.log(indexOf)
-    } else {
-        alert('wrong')
-    }
-
-// get the field set data value for each question and log it into a variable
-//  if we have more than one variable, loop through all the variables and get the answer selected
-
- 
-   
-    // $('.results').html(`<p>${result}</p>`)
-
-})
-
-// This is to append the answer to the DOM
-
-// const answerOnePop =
-// if(userAns === ans) {
-//     $("answerPop").append(`Correct! ${ansOnePops}.`)
-// } else if (userAns !== ans) {
-//     $("answerPop").append(`Incorrect. ${ansOnePops}.s`)
-// } else {
-//     $("answerPop").append(`Please select an answer.`)
-// }
-
-// ===============================================================================================
-// ===============================================================================================
-disQuiz.showAnswer = function(buttonReference) {
- console.log('called showAnswer', buttonReference);
- // store the seleced radial button value in a variable
- const questionAsked = buttonReference.data('value')
- console.log(questionAsked)
- const userChoice = $(`input[name=${questionAsked}]:checked`)
- console.log(userChoice.val())
-
-// if disQuiz.answerGuide[questionAsked] = userChoice.val() ==right answer
-// disQuiz.answerGuide.question1
- 
- // iterate over the answerGuide object and find the answer for the question for comparision.
-
-}
-
+// check for checked here in the click of the button how to identify if something is checked/unchecked
+// then run the function: disQuiz.showAnswer
 disQuiz.init = function() {
- $('.button').on('click', function(){
-    disQuiz.showAnswer($(this));
- })
-    
+    $('.button').on('click', function(e){     
+        e.preventDefault();
+
+        // create variables to keep the if statement clean and simple
+        const selectedAnsValue = $(this).data('value')
+        const userChoice = $(`input[name=${selectedAnsValue}]`)
+
+
+        // what do I want to compare?
+            // if a specific button to the specific question is clicked, execute the function: disQuiz.showAnswer($(this));
+            // else post to the DOM "Please choose an answer."
+        // disQuiz.showAnswer($(this));
+        // console.log(userChoice, selectedAnsValue)
+        
+        // this is the if statement that filters for checked vs unchecked
+        // check to see if the button is "checked"
+        if ((userChoice).is(':checked')===true) {
+            disQuiz.showAnswer($(this));
+        } else {
+            $('.post-answer').append("Please choose an answer.")
+        }
+    })
 };
 
-// document ready
+
+disQuiz.showAnswer = function(buttonReference) {
+    //  console.log('called showAnswer', buttonReference);
+     // store the seleced radial button value in a variable
+        const questionAsked = buttonReference.data('value')
+        // console.log(questionAsked)
+
+        const userChoice = $(`input[name=${questionAsked}]:checked`)
+
+        // userChoice.val() should be checking the VALUE of the radio button.
+        // Sample Logic: questionAsked = is question-1.  The radio button with the name as question-1 AND is checked has the value of: option-d
+        // console.log(userChoice.val())
+
+        // this function is being called with the above userChoice.val AND the data-value of the BUTTON being clicked.
+        // Sample: option-d, question-1
+        disQuiz.checkAnswer(userChoice.val(), questionAsked)
+    
+    // if disQuiz.answerGuide[questionAsked] = userChoice.val() ==right answer
+    // disQuiz.answerGuide.question1
+     
+     // iterate over the answerGuide object and find the answer for the question for comparision.
+    
+    }
+
+
+    disQuiz.checkAnswer = function(userChoiceVal, questionAsked) {
+        // console.log("This is towards userChoiceVal", userChoiceVal)
+        
+    
+        if(userChoiceVal === disQuiz.answerGuide[questionAsked].answer) {
+            console.log("You got the correct answer.")
+            console.log(disQuiz.answerGuide[questionAsked].fact)
+            $(".post-answer").append(`Correct! ${disQuiz.answerGuide.question1}.`)
+        } else {
+            console.log("You got the WRONG answer.")
+            $(".post-answer").append(`Incorrect. ${disQuiz.answerGuide.question1}.`)
+        } 
+    };
+// ===============================================================================================
+// ===============================================================================================
+
+
+// // document ready
 $(function() {
     disQuiz.init();
 });
 
 
-
-	
+// ===========================================================================================
+// ===========================================================================================
 
