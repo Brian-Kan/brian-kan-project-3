@@ -20,7 +20,7 @@
 
 
 
-
+// ~~~STEPS~~~
   // STEP ONE: filter the object so that only items of desire are displayed
 
   // STEP TWO: write a function that displays result on the page with the correct answer. HINT: What kind of information (paramaters) does this funciton need to properly display all of our information?
@@ -38,44 +38,30 @@
 const disQuiz = {};
 
 
-// getElementByClassName()  this brings back an array.  
-
 disQuiz.answerGuide = {
-    question-1: {
-        answer: 'optionD',
+    question1: {
+        answer: 'optiond',
         fact: 'FUN Fact about Answer 1.'
     },
     question2: {
-        answer: 'optionC',
+        answer: 'optionc',
         fact: 'FUN Fact about Answer 2.'    
     },
     question3: {
-        answer: 'optionB',
+        answer: 'optionb',
         fact: 'FUN Fact about Answer 3.'
     },
     question4: {
-        answer: 'optionA',
+        answer: 'optiona',
         fact: 'FUN Fact about Answer 4.'
     },
     question5: {
-        answer: 'optionB',
+        answer: 'optionb',
         fact: 'FUN Fact about Answer 5.'
     }
 }
 
-console.log(disQuiz.answerGuide)
-console.log(Object.values(disQuiz.answerGuide))
 
-// const questionArray = document.getElementsByClassName();
-
-for (let answer in disQuiz.answerGuide) {
-    // console.log (disQuiz.answerGuide[answer]);
-    // console.log(answer);
-}
-
-
-
-const totalAnsArray = []
 // ===============================================================================================
 // ===============================================================================================
 
@@ -86,9 +72,11 @@ disQuiz.init = function() {
         e.preventDefault();
 
         // create variables to keep the if statement clean and simple
-        const selectedAnsValue = $(this).data('value')
-        const userChoice = $(`input[name=${selectedAnsValue}]`)
+        const selectedAnsValue = $(this).data('value');
+        const userChoice = $(`input[name=${selectedAnsValue}]`);
 
+        console.log(selectedAnsValue) // question-1
+        console.log(userChoice) // array
 
         // what do I want to compare?
             // if a specific button to the specific question is clicked, execute the function: disQuiz.showAnswer($(this));
@@ -98,52 +86,40 @@ disQuiz.init = function() {
         
         // this is the if statement that filters for checked vs unchecked
         // check to see if the button is "checked"
-        if ((userChoice).is(':checked')===true) {
+        if ((userChoice).is(':checked') === true) {
             disQuiz.showAnswer($(this));
         } else {
-            $('.post-answer').append("Please choose an answer.")
+            $('.post-answer-1').append("Please choose an answer.")
         }
     })
 };
 
 
 disQuiz.showAnswer = function(buttonReference) {
-    //  console.log('called showAnswer', buttonReference);
-     // store the seleced radial button value in a variable
-        const questionAsked = buttonReference.data('value')
-        // console.log(questionAsked)
+    // store the seleced radial button value in a variable
+    const questionAsked = buttonReference.data('value');
+    const userChoice = $(`input[name=${questionAsked}]:checked`);
 
-        const userChoice = $(`input[name=${questionAsked}]:checked`)
+    // userChoice.val() should be checking the VALUE of the radio button.
+    // Sample Logic: questionAsked = is question-1.  The radio button with the name as question-1 AND is checked has the value of: option-d
 
-        // userChoice.val() should be checking the VALUE of the radio button.
-        // Sample Logic: questionAsked = is question-1.  The radio button with the name as question-1 AND is checked has the value of: option-d
-        // console.log(userChoice.val())
+    // this function is being called with the above userChoice.val AND the data-value of the BUTTON being clicked.
+    // Sample: option-d, question-1
+    disQuiz.checkAnswer(userChoice.val(), questionAsked)
+};
 
-        // this function is being called with the above userChoice.val AND the data-value of the BUTTON being clicked.
-        // Sample: option-d, question-1
-        disQuiz.checkAnswer(userChoice.val(), questionAsked)
-    
-    // if disQuiz.answerGuide[questionAsked] = userChoice.val() ==right answer
-    // disQuiz.answerGuide.question1
-     
-     // iterate over the answerGuide object and find the answer for the question for comparision.
-    
+
+disQuiz.checkAnswer = function(userChoiceVal, questionAsked) {
+
+    const formattedQuestion = questionAsked.replace("-", "");
+    const formattedUserChoice = userChoiceVal.replace("-", "");
+
+    if(formattedUserChoice === disQuiz.answerGuide[formattedQuestion].answer) {
+        $(".post-answer-1").append(`Correct! ${disQuiz.answerGuide[formattedQuestion].fact}`)
+    } else {
+        $(".post-answer-1").append(`Incorrect. ${disQuiz.answerGuide[formattedQuestion].fact}`)
     }
-
-
-    disQuiz.checkAnswer = function(userChoiceVal, questionAsked) {
-        // console.log("This is towards userChoiceVal", userChoiceVal)
-        
-    
-        if(userChoiceVal === disQuiz.answerGuide[questionAsked].answer) {
-            console.log("You got the correct answer.")
-            console.log(disQuiz.answerGuide[questionAsked].fact)
-            $(".post-answer").append(`Correct! ${disQuiz.answerGuide.question1}.`)
-        } else {
-            console.log("You got the WRONG answer.")
-            $(".post-answer").append(`Incorrect. ${disQuiz.answerGuide.question1}.`)
-        } 
-    };
+};
 // ===============================================================================================
 // ===============================================================================================
 
