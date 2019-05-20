@@ -62,22 +62,22 @@ disQuiz.answerGuide = {
 }
 
 
+
 // ===============================================================================================
 // ===============================================================================================
 
 // check for checked here in the click of the button how to identify if something is checked/unchecked
 // then run the function: disQuiz.showAnswer
 disQuiz.init = function() {
-    $('.button').on('click', function(e){     
+    $('button').on('click', function(e){     
         e.preventDefault();
+        // This converts kabob casing to camel casing
+        $(this).next().empty();
 
         // create variables to keep the if statement clean and simple
         const selectedAnsValue = $(this).data('value');
         const userChoice = $(`input[name=${selectedAnsValue}]`);
-
-        console.log(selectedAnsValue) // question-1
-        console.log(userChoice) // array
-
+        
         // what do I want to compare?
             // if a specific button to the specific question is clicked, execute the function: disQuiz.showAnswer($(this));
             // else post to the DOM "Please choose an answer."
@@ -87,10 +87,28 @@ disQuiz.init = function() {
         // this is the if statement that filters for checked vs unchecked
         // check to see if the button is "checked"
         if ((userChoice).is(':checked') === true) {
-            disQuiz.showAnswer($(this));
+            disQuiz.showAnswer($(this));            
         } else {
-            $('.post-answer-1').append("Please choose an answer.")
+            $(this).next().text("Please choose an answer.");
+            return          
         }
+        
+        
+        
+        
+        
+        // const btn = $(e.target);
+        // btn.attr("disabled", true);
+
+        // $('fieldset').data('question')
+        // const correspondingAns = $(this).parent().data('question').replace('-','')
+        // $(this).parent().append(`<p>${disQuiz.answerGuide[correspondingAns].answer}: ${disQuiz.answerGuide[correspondingAns].fact}</p>`)
+        
+        
+
+        const btn = $(e.target);
+        btn.attr("disabled", true);
+
     })
 };
 
@@ -99,27 +117,36 @@ disQuiz.showAnswer = function(buttonReference) {
     // store the seleced radial button value in a variable
     const questionAsked = buttonReference.data('value');
     const userChoice = $(`input[name=${questionAsked}]:checked`);
+    // console.log(buttonReference);
 
+    
+    
     // userChoice.val() should be checking the VALUE of the radio button.
     // Sample Logic: questionAsked = is question-1.  The radio button with the name as question-1 AND is checked has the value of: option-d
 
     // this function is being called with the above userChoice.val AND the data-value of the BUTTON being clicked.
     // Sample: option-d, question-1
-    disQuiz.checkAnswer(userChoice.val(), questionAsked)
+    disQuiz.checkAnswer(userChoice.val(), questionAsked, buttonReference)
 };
 
 
-disQuiz.checkAnswer = function(userChoiceVal, questionAsked) {
+disQuiz.checkAnswer = function(userChoiceVal, questionAsked, buttonReference) {
 
     const formattedQuestion = questionAsked.replace("-", "");
     const formattedUserChoice = userChoiceVal.replace("-", "");
+    // console.log(buttonReference);
+    // $(buttonReference).next().text('somejunk');
+    
 
     if(formattedUserChoice === disQuiz.answerGuide[formattedQuestion].answer) {
-        $(".post-answer-1").append(`Correct! ${disQuiz.answerGuide[formattedQuestion].fact}`)
+        $(buttonReference).next().append(`Correct! ${disQuiz.answerGuide[formattedQuestion].fact}`)
     } else {
-        $(".post-answer-1").append(`Incorrect. ${disQuiz.answerGuide[formattedQuestion].fact}`)
+        $(buttonReference).next().append(`Incorrect. ${disQuiz.answerGuide[formattedQuestion].fact}`)
     }
 };
+
+
+
 // ===============================================================================================
 // ===============================================================================================
 
@@ -131,5 +158,54 @@ $(function() {
 
 
 // ===========================================================================================
+// PLAYGROUND
+// ===========================================================================================
+// $(this).unbind();
+
+// $("button").one("click", function(){
+
+// })
+
+// if(response === answer) {
+//     score++;
+// }
+
+// let score = 0;
+
+// ===========================================================================================
+// MODAL
 // ===========================================================================================
 
+// $(`.images img`).on("click", function(e){
+//     e.preventDefault();
+//     const dataId = e.target.id
+//     console.log(dataId)
+
+//     starWarsApp.getFilmInfo(dataId)
+
+//     // Get the modal
+//     const modal = document.getElementsByClassName('modal__outer')[0];
+
+//     // Get the button that opens the modal
+//     const btn = document.getElementsByClassName("modal__btn");
+
+//     // Get the <span> element that closes the modal
+//     const span = document.getElementsByClassName("close__btn")[0];
+
+//     // // When the user clicks on the button, open the modal 
+//       modal.style.display = "block";
+//       // console.log(modal);
+
+//       // When the user clicks on <span> (x), close the modal
+//       span.onclick = function() {
+//         modal.style.display = "none";
+//       }
+
+//       // When the user clicks anywhere outside of the modal, close it
+//       window.onclick = function(event) {
+//         if (event.target === modal) {
+//           modal.style.display = "none";
+//         }
+//       }
+
+// })
