@@ -2,18 +2,18 @@
 
 // MVP - Quiz
 // This will be a multiple choice quiz.
-// There will be 10 questions.  4 choices per question.
+// There will be 5 questions.  4 choices per question.
 // A question and it's 4 options + answer will act as a template.
-// There may be an array of 10 questions.  Unsure if an array is actually needed.
+// There may be an array of 5 questions.  Unsure if an array is actually needed.
 // Questions and their respective answers will be placed in an object.
 // Once the answers are ALL selected, the user can click on 'submit'.
-// Submit will result in the final score + answers to be populated.
-// Final score will be a H2 update as it will sit in a default state of 0/10.
+// Submit will result in the answers to be populated.
 // Answers will populate straight into the DOM.
 
 // STRETCH GOALS
 // Each question will have it's own page.
-// Answer will populate in the form of a modal after each question is submitted.
+// A score will be calculated.
+// Answer + score will populate in the form of a modal after each question is submitted.
 // The answer will show what the user selected vs the correct answer via color coding.  Green for 'right' and red for 'wrong'.
 // Last page will have the grand total.
 
