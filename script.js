@@ -40,28 +40,37 @@ const disQuiz = {};
 
 disQuiz.answerGuide = {
     question1: {
-        answer: 'optiond',
-        fact: 'FUN Fact about Answer 1.'
+        answer: 'optionc',
+        fact: `Oswald the Lucky Rabbit was created by Walt Disney as his mascott in 1927.  Walt Disney later came up with the creation of Mickey Mouse after Walt lost the rights to Oswald to Universal Studios.`
     },
     question2: {
-        answer: 'optionc',
-        fact: 'FUN Fact about Answer 2.'    
+        answer: 'optionb',
+        fact: `Mortimer Mouse was the original name Walt Disney wanted to give Mickey.  However, Walt Disney's wife, Lillian Disney, persuaded Walt to change the name to "Mickey" as she did not like the name Mortimer.  Mortimer later appears as a different character, typically as an antagonist to Mickey himself.`
     },
     question3: {
         answer: 'optionb',
-        fact: 'FUN Fact about Answer 3.'
+        fact: `There are 6 different Disney Resorts in the world as of May 2019.  They are:
+        <ul>
+            <li>Disneyland Resort</li>
+            <li>Walt Disney World Resort</li>
+            <li>Hong Kong Disneyland Resort</li>
+            <li>Tokyo Disney Resort</li>
+            <li>Disneyland Paris</li>
+            <li>Shanghai Disney Resort</li>
+        </ul>`
     },
     question4: {
         answer: 'optiona',
-        fact: 'FUN Fact about Answer 4.'
+        fact: `Elsa was officially crowned the Queen of Arendelle thus making her not a princess  (*sneaky, sneaky me*).`
     },
     question5: {
-        answer: 'optionb',
-        fact: 'FUN Fact about Answer 5.'
+        answer: 'optiond',
+        fact: `Star Wars: Galaxy's Edge will open on May 31, 2019 at the Disneyland Resort and August 29, 2019 at the Walt Disney World Resort.  The others are parks that are being planned with hopes of being opened in the near future!`
     }
 }
 
-
+let score = 0;
+let completionTracker = 0;
 
 // ===============================================================================================
 // ===============================================================================================
@@ -91,23 +100,12 @@ disQuiz.init = function() {
         } else {
             $(this).next().text("Please choose an answer.");
             return          
-        }
+        }      
         
-        
-        
-        
-        
-        // const btn = $(e.target);
-        // btn.attr("disabled", true);
-
-        // $('fieldset').data('question')
-        // const correspondingAns = $(this).parent().data('question').replace('-','')
-        // $(this).parent().append(`<p>${disQuiz.answerGuide[correspondingAns].answer}: ${disQuiz.answerGuide[correspondingAns].fact}</p>`)
-        
-        
-
         const btn = $(e.target);
         btn.attr("disabled", true);
+
+        
 
     })
 };
@@ -117,10 +115,7 @@ disQuiz.showAnswer = function(buttonReference) {
     // store the seleced radial button value in a variable
     const questionAsked = buttonReference.data('value');
     const userChoice = $(`input[name=${questionAsked}]:checked`);
-    // console.log(buttonReference);
-
-    
-    
+  
     // userChoice.val() should be checking the VALUE of the radio button.
     // Sample Logic: questionAsked = is question-1.  The radio button with the name as question-1 AND is checked has the value of: option-d
 
@@ -134,21 +129,17 @@ disQuiz.checkAnswer = function(userChoiceVal, questionAsked, buttonReference) {
 
     const formattedQuestion = questionAsked.replace("-", "");
     const formattedUserChoice = userChoiceVal.replace("-", "");
-    // console.log(buttonReference);
-    // $(buttonReference).next().text('somejunk');
-    
+        
 
     if(formattedUserChoice === disQuiz.answerGuide[formattedQuestion].answer) {
-        $(buttonReference).next().append(`Correct! ${disQuiz.answerGuide[formattedQuestion].fact}`)
+        $(buttonReference).next().append(`Correct! ${disQuiz.answerGuide[formattedQuestion].fact}`);
+        score++
     } else {
-        $(buttonReference).next().append(`Incorrect. ${disQuiz.answerGuide[formattedQuestion].fact}`)
+        $(buttonReference).next().append(`Incorrect. ${disQuiz.answerGuide[formattedQuestion].fact}`);   
     }
+
+    
 };
-
-
-
-// ===============================================================================================
-// ===============================================================================================
 
 
 // // document ready
@@ -156,56 +147,3 @@ $(function() {
     disQuiz.init();
 });
 
-
-// ===========================================================================================
-// PLAYGROUND
-// ===========================================================================================
-// $(this).unbind();
-
-// $("button").one("click", function(){
-
-// })
-
-// if(response === answer) {
-//     score++;
-// }
-
-// let score = 0;
-
-// ===========================================================================================
-// MODAL
-// ===========================================================================================
-
-// $(`.images img`).on("click", function(e){
-//     e.preventDefault();
-//     const dataId = e.target.id
-//     console.log(dataId)
-
-//     starWarsApp.getFilmInfo(dataId)
-
-//     // Get the modal
-//     const modal = document.getElementsByClassName('modal__outer')[0];
-
-//     // Get the button that opens the modal
-//     const btn = document.getElementsByClassName("modal__btn");
-
-//     // Get the <span> element that closes the modal
-//     const span = document.getElementsByClassName("close__btn")[0];
-
-//     // // When the user clicks on the button, open the modal 
-//       modal.style.display = "block";
-//       // console.log(modal);
-
-//       // When the user clicks on <span> (x), close the modal
-//       span.onclick = function() {
-//         modal.style.display = "none";
-//       }
-
-//       // When the user clicks anywhere outside of the modal, close it
-//       window.onclick = function(event) {
-//         if (event.target === modal) {
-//           modal.style.display = "none";
-//         }
-//       }
-
-// })

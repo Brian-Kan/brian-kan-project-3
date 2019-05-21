@@ -14,6 +14,9 @@
 </head>
 <body>
     <header>
+        <div class="wrapper">
+            <h1>Disney Quiz!</h1>
+        </div>
 
     </header>
 
@@ -21,120 +24,124 @@
     <main>
 
         <section>
-            <form action="">
-                <fieldset data-question="question-1">
-                    <p>Question 1: blah blah blah</p>
-                    <label for="option-a">Option A</label>
-                    <input type="radio" name="question-1" value="option-a" data-value="option-a">
+            <div class="wrapper">
+                <form action="">
+                    <fieldset data-question="question-1">
+                        <p>Question 1: Who was Walt Disney's first mascott?</p>
+                        <input type="radio" name="question-1" value="option-a" data-value="option-a">
+                        <label for="option-a">Goofy</label>
 
-                    <label for="option-b">Option B</label>
-                    <input type="radio" name="question-1" value="option-b" data-value="option-b">
+                        <input type="radio" name="question-1" value="option-b" data-value="option-b">
+                        <label for="option-b">Mickey Mouse</label>
 
-                    <label for="option-c">Option C</label>
-                    <input type="radio" name="question-1" value="option-c" data-value="option-c">
+                        <input type="radio" name="question-1" value="option-c" data-value="option-c">
+                        <label for="option-c">Oswald the Lucky Rabbit</label>
 
-                    <label for="option-d">Option D</label>
-                    <input type="radio" name="question-1" value="option-d" data-value="option-d">
+                        <input type="radio" name="question-1" value="option-d" data-value="option-d">
+                        <label for="option-d">Big Bad Pete</label>
 
-                   
-                    <button type="submit" value="submit" data-value="question-1" class="button" required>Next</button>
+                    
+                        <button type="submit" value="submit" data-value="question-1" class="button" required>Next</button>
 
-                    <!-- <label for="next">Answer 1: bleh bleh bleh</label> -->
+                        <p class="post-answer"></p>
 
-                    <p class="post-answer"></p>
+                    </fieldset>
 
-                </fieldset>
+                    <fieldset data-question="question-2">
+                        <p>Question 2: What was Mickey Mouse's original name?</p>
+                        <input type="radio" name="question-2" value="option-a" data-value="option-a">
+                        <label for="option-a">Minnie Mouse</label>
 
-                <fieldset data-question="question-2">
-                    <p>Question 2: blah blah blah</p>
-                    <label for="option-a">Option A</label>
-                    <input type="radio" name="question-2" value="option-a" data-value="option-a">
+                        <input type="radio" name="question-2" value="option-b" data-value="option-b">
+                        <label for="option-b">Mortimer Mouse</label>
 
-                    <label for="option-b">Option B</label>
-                    <input type="radio" name="question-2" value="option-b" data-value="option-b">
+                        <input type="radio" name="question-2" value="option-c" data-value="option-c">
+                        <label for="option-c">Donald Mouse</label>
 
-                    <label for="option-c">Option C</label>
-                    <input type="radio" name="question-2" value="option-c" data-value="option-c">
+                        <input type="radio" name="question-2" value="option-d" data-value="option-d">
+                        <label for="option-d">This is a trick question.  He was always Mickey Mouse</label>
+    
+                        <button type="submit" value="submit" data-value="question-2" class="button" required>Next</button>
 
-                    <label for="option-d">Option D</label>
-                    <input type="radio" name="question-2" value="option-d" data-value="option-d">
- 
-                    <button type="submit" value="submit" data-value="question-2" class="button" required>Next</button>
+                        <p class="post-answer"></p>
 
-                    <!-- <label for="next">Answer 1: bleh bleh bleh</label> -->
+                    </fieldset>
 
-                    <p class="post-answer"></p>
+                    <fieldset data-question="question-3">
+                        <p>Question 3: How many Disney Resorts are there in the world?</p>
+                        <input type="radio" name="question-3" value="option-a" data-value="option-a">
+                        <label for="option-a">5</label>
 
-                </fieldset>
+                        <input type="radio" name="question-3" value="option-b" data-value="option-b">
+                        <label for="option-b">6</label>
 
-                <fieldset data-question="question-3">
-                    <p>Question 3: blah blah blah</p>
-                    <label for="option-a">Option A</label>
-                    <input type="radio" name="question-3" value="option-a" data-value="option-a">
+                        <input type="radio" name="question-3" value="option-c" data-value="option-c">
+                        <label for="option-c">7</label>
 
-                    <label for="option-b">Option B</label>
-                    <input type="radio" name="question-3" value="option-b" data-value="option-b">
+                        <input type="radio" name="question-3" value="option-d" data-value="option-d">
+                        <label for="option-d">12</label>
+    
+                        <button type="submit" value="submit" data-value="question-3" class="button" required>Next</button>                        
 
-                    <label for="option-c">Option C</label>
-                    <input type="radio" name="question-3" value="option-c" data-value="option-c">
+                        <p class="post-answer"></p>
 
-                    <label for="option-d">Option D</label>
-                    <input type="radio" name="question-3" value="option-d" data-value="option-d">
- 
-                    <button type="submit" value="submit" data-value="question-3" class="button" required>Next</button>
+                    </fieldset>
 
-                    <!-- <label for="next">Answer 3: bleh bleh bleh</label> -->
+                    <fieldset data-question="question-4">
+                        <p>Question 4: Who is NOT a Disney Princess</p>
+                        <input type="radio" name="question-4" value="option-a" data-value="option-a">
+                        <label for="option-a">Elsa</label>
 
-                    <p class="post-answer"></p>
+                        <input type="radio" name="question-4" value="option-b" data-value="option-b">
+                        <label for="option-b">Merrida</label>
 
-                </fieldset>
+                        <input type="radio" name="question-4" value="option-c" data-value="option-c">
+                        <label for="option-c">Ariel</label>
 
-                <fieldset data-question="question-4">
-                    <p>Question 4: blah blah blah</p>
-                    <label for="option-a">Option A</label>
-                    <input type="radio" name="question-4" value="option-a" data-value="option-a">
+                        <input type="radio" name="question-4" value="option-d" data-value="option-d">
+                        <label for="option-d">Aurora</label>
+    
+                        <button type="submit" value="submit" data-value="question-4" class="button" required>Next</button>
 
-                    <label for="option-b">Option B</label>
-                    <input type="radio" name="question-4" value="option-b" data-value="option-b">
+                        <p class="post-answer"></p>
 
-                    <label for="option-c">Option C</label>
-                    <input type="radio" name="question-4" value="option-c" data-value="option-c">
+                    </fieldset>
 
-                    <label for="option-d">Option D</label>
-                    <input type="radio" name="question-4" value="option-d" data-value="option-d">
- 
-                    <button type="submit" value="submit" data-value="question-4" class="button" required>Next</button>
+                    <fieldset data-question="question-5">
+                        <p>Question 5: Which themed land will be added in 2019?</p>
+                        <input type="radio" name="question-5" value="option-a" data-value="option-a">
+                        <label for="option-a">Frozen Land</label>
 
-                    <!-- <label for="next">Answer 4: bleh bleh bleh</label> -->
+                        <input type="radio" name="question-5" value="option-b" data-value="option-b">
+                        <label for="option-b">Marvel Land</label>
 
-                    <p class="post-answer"></p>
+                        <input type="radio" name="question-5" value="option-c" data-value="option-c">
+                        <label for="option-c">Paradise Park</label>
 
-                </fieldset>
+                        <input type="radio" name="question-5" value="option-d" data-value="option-d">
+                        <label for="option-d">Galaxy's Edge</label>
+    
+                        <button type="submit" value="submit" data-value="question-5" class="button" required>Next</button>
 
-                <fieldset data-question="question-5">
-                    <p>Question 5: blah blah blah</p>
-                    <label for="option-a">Option A</label>
-                    <input type="radio" name="question-5" value="option-a" data-value="option-a">
+                        <p class="post-answer"></p>
 
-                    <label for="option-b">Option B</label>
-                    <input type="radio" name="question-5" value="option-b" data-value="option-b">
+                    </fieldset>
 
-                    <label for="option-c">Option C</label>
-                    <input type="radio" name="question-5" value="option-c" data-value="option-c">
-
-                    <label for="option-d">Option D</label>
-                    <input type="radio" name="question-5" value="option-d" data-value="option-d">
- 
-                    <button type="submit" value="submit" data-value="question-5" class="button" required>Next</button>
-
-                    <!-- <label for="next">Answer 5: bleh bleh bleh</label> -->
-
-                    <p class="post-answer"></p>
-
-                </fieldset>
-
-            </form>
+                </form>
+            </div>
             
+        </section>
+
+        <section>
+
+            <div class="modal">
+                <div class="inner-modal">
+                    <span class="close">✖</span>
+                    <p></p>
+
+                </div>
+            </div>
+
         </section>
 
 
